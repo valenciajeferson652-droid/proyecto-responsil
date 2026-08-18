@@ -1,0 +1,1265 @@
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --primary: #ff1744;
+    --primary-dark: #d50032;
+    --secondary: #ff9100;
+    --dark: #050505;
+    --dark-2: #0d0d0d;
+    --dark-3: #171717;
+    --light: #f5f5f5;
+    --text: #ffffff;
+    --muted: #a8a8a8;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar-custom {
+    background: rgba(0, 0, 0, 0.88) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 23, 68, 0.25);
+
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.5);
+
+    transition: 0.4s ease;
+}
+
+.navbar-custom .navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white !important;
+
+    text-shadow:
+        0 0 10px rgba(255, 23, 68, 0.5);
+}
+
+.navbar-custom .navbar-brand span {
+    color: var(--primary);
+}
+
+.navbar-custom .nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+
+    margin: 0 5px;
+
+    position: relative;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--primary) !important;
+    transform: translateY(-2px);
+}
+
+.navbar-custom .nav-link::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--primary);
+
+    transform: translateX(-50%);
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 0 10px var(--primary);
+}
+.fondo-video{
+    position:relative;
+    width:100%;
+    height:1000px;
+    overflow:hidden;
+    border: #f50202 solid 1px;
+}
+.fondo-video video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+}
+
+.fondo-video::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    z-index:1;
+}
+
+.fondo-video{
+    position:relative;
+    width:100%;
+    height:100vh; /* ocupa toda la pantalla */
+    min-height:800px;
+    overflow:hidden;
+}
+
+.fondo-video video{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    z-index:0;
+}
+
+.fondo-video::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(2, 2, 2, 0.35);
+    z-index:1;
+}
+
+/* Imagen y texto encima del video */
+.contenido{
+    position:relative;
+    z-index:2;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    text-align:center;
+}
+
+.contenido img{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid white;
+}
+
+.contenido h1{
+    font-size:50px;
+    margin-top:25px;
+}
+@media(max-width:768px){
+
+    .fondo-video{
+        height:400px;
+    }
+
+    .contenido img{
+        width:130px;
+        height:130px;
+    }
+
+    .contenido h1{
+        font-size:25px;
+    }
+
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+.hero-row {
+    min-height: 650px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-bike {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+}
+
+.hero-bike-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 25px;
+    display: block;
+}
+
+.bike-info {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    padding: 15px 20px;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    border-left: 4px solid #ff1744;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.bike-info span {
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.bike-info strong {
+    font-size: 32px;
+    color: #ff1744;
+    line-height: 1;
+}
+
+.bike-info small {
+    font-size: 11px;
+}
+
+.hero-content h1 {
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 0.9;
+    margin-bottom: 25px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 35px;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stat strong {
+    font-size: 28px;
+    color: #ff1744;
+}
+
+.hero-stat span {
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* Luz roja de fondo */
+
+.hero-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -150px;
+    top: 100px;
+
+    background: rgba(255, 23, 68, 0.18);
+
+    filter: blur(120px);
+
+    border-radius: 50%;
+}
+
+
+/* Línea inferior */
+
+.hero-section::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--primary),
+            var(--secondary),
+            var(--primary),
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px var(--primary);
+}
+
+
+/* =====================================================
+   TEXTO HERO
+===================================================== */
+
+.eyebrow,
+.section-kicker {
+    display: inline-block;
+
+    font-size: 0.8rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.2rem;
+
+    text-transform: uppercase;
+
+    color: var(--primary);
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px rgba(255, 23, 68, 0.6);
+}
+
+.hero-section h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+
+    font-weight: 900;
+
+    line-height: 0.95;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.1),
+        0 0 40px rgba(255, 23, 68, 0.25);
+
+    animation: heroText 1.2s ease;
+}
+
+.hero-section h1 span {
+    color: var(--primary);
+
+    text-shadow:
+        0 0 10px var(--primary),
+        0 0 30px rgba(255, 23, 68, 0.7);
+}
+
+.hero-section p {
+    color: #d0d0d0;
+
+    max-width: 650px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+
+    animation: fadeUp 1.4s ease;
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn {
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn-danger {
+    background: var(--primary);
+    border-color: var(--primary);
+
+    box-shadow:
+        0 5px 20px rgba(255, 23, 68, 0.25);
+}
+
+.btn-danger:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+
+    box-shadow:
+        0 10px 30px rgba(255, 23, 68, 0.5);
+}
+
+
+/* =====================================================
+   HERO CARD / IMAGEN
+===================================================== */
+
+.hero-card {
+    position: relative;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 23, 68, 0.3);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(255, 23, 68, 0.15);
+}
+
+.hero-card img {
+    width: 100%;
+
+    min-height: 450px;
+
+    object-fit: cover;
+
+    transition: 0.7s ease;
+}
+
+.hero-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   IMAGEN FLOTANTE
+===================================================== */
+
+.floating-animation {
+    animation: floatImage 4.5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 20px 30px rgba(0, 0, 0, 0.5)
+        );
+}
+
+@keyframes floatImage {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+.section-light {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 23, 68, 0.08),
+            transparent 35%
+        ),
+        #0b0b0b;
+
+    color: white;
+}
+
+.section-dark {
+    background:
+        linear-gradient(
+            135deg,
+            #120006,
+            #070707,
+            #120006
+        );
+
+    color: white;
+}
+
+.contact-section {
+    background:
+        linear-gradient(
+            180deg,
+            #090909,
+            #111111
+        );
+
+    color: white;
+}
+
+.section-intro {
+    max-width: 700px;
+    color: var(--muted);
+}
+
+
+/* =====================================================
+   TÍTULOS
+===================================================== */
+
+section h2 {
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: -1px;
+}
+
+.section-kicker {
+    color: var(--primary);
+}
+
+.kicker-light {
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   TARJETAS DE MOTOS
+===================================================== */
+
+.moto-card {
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #080808
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    color: white;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.moto-card:hover {
+    transform: translateY(-12px) scale(1.02);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(255, 23, 68, 0.15);
+}
+
+.moto-card .card-img-top {
+    height: 250px;
+
+    object-fit: cover;
+
+    transition: 0.6s ease;
+}
+
+.moto-card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.moto-card .card-body {
+    padding: 25px;
+}
+
+.moto-card .card-title {
+    color: white;
+
+    font-weight: 900;
+}
+
+.moto-card .card-text {
+    color: var(--muted);
+}
+
+
+/* =====================================================
+   IMÁGENES DE MOTOS
+===================================================== */
+
+.motorcycle-image {
+    width: 100%;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    transition: 0.5s ease;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.motorcycle-image:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 20px 50px rgba(255, 23, 68, 0.2);
+}
+
+
+/* =====================================================
+   CAROUSEL
+===================================================== */
+
+.carousel-custom {
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 23, 68, 0.25);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-img {
+    width: 100%;
+
+    height: 560px;
+
+    object-fit: cover;
+
+    filter: brightness(0.8);
+
+    transition: 0.5s ease;
+}
+
+.carousel-custom:hover .carousel-img {
+    filter: brightness(0.95);
+}
+
+.carousel-caption {
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 5rem 2rem 2rem;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.95)
+        );
+}
+
+.carousel-caption h3 {
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 15px rgba(255, 23, 68, 0.5);
+}
+
+
+/* =====================================================
+   INFO BOX
+===================================================== */
+
+.info-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.4rem;
+
+    padding: 1.2rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #0b0b0b
+        );
+
+    border-radius: 15px;
+
+    border: 1px solid var(--border);
+
+    border-left: 4px solid var(--primary);
+
+    color: white;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateX(7px);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 5px 25px rgba(255, 23, 68, 0.12);
+}
+
+.info-box strong {
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.form-card {
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #090909
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    color: white;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.form-card h3,
+.form-card h4 {
+    color: white;
+}
+
+.form-control,
+.form-select {
+    background: #101010;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    padding: 12px 15px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: #777;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: #101010;
+
+    color: white;
+
+    border-color: var(--primary);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 23, 68, 0.12),
+        0 0 20px rgba(255, 23, 68, 0.12);
+}
+
+.form-label {
+    color: #ddd;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer-custom {
+    background:
+        linear-gradient(
+            180deg,
+            #080808,
+            #000000
+        );
+
+    border-top: 1px solid rgba(255, 23, 68, 0.25);
+
+    color: white;
+
+    padding-top: 50px;
+}
+
+.footer-custom a {
+    color: #aaa;
+
+    transition: 0.3s ease;
+}
+
+.footer-custom a:hover {
+    color: var(--primary);
+}
+
+
+/* =====================================================
+   BOTÓN VOLVER ARRIBA
+===================================================== */
+
+.back-to-top {
+    position: fixed;
+
+    right: 1.25rem;
+
+    bottom: 1.25rem;
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 1050;
+
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    box-shadow:
+        0 0 25px rgba(255, 23, 68, 0.5);
+}
+
+.back-to-top.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+
+    background: var(--primary-dark);
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(-70px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(255, 23, 68, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(255, 23, 68, 0.55);
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 991.98px) {
+
+    .hero-section {
+        min-height: auto;
+
+        padding-top: 120px;
+
+        padding-bottom: 80px;
+    }
+
+    .hero-section .display-4 {
+        font-size: 2.8rem;
+    }
+
+    .carousel-img {
+        height: 430px;
+    }
+
+    .navbar-custom .navbar-collapse {
+        background: rgba(0, 0, 0, 0.97);
+
+        padding: 20px;
+
+        margin-top: 10px;
+
+        border-radius: 15px;
+
+        border: 1px solid rgba(255, 23, 68, 0.2);
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 767.98px) {
+
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    .hero-section {
+        text-align: center;
+
+        padding-top: 110px;
+
+        padding-bottom: 60px;
+    }
+
+    .hero-section h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .hero-section .d-flex {
+        justify-content: center;
+    }
+
+    .hero-card {
+        margin-top: 35px;
+    }
+
+    .hero-card img {
+        min-height: 300px;
+    }
+
+    .carousel-img {
+        height: 320px;
+    }
+
+    .carousel-caption {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+
+        margin-bottom: 0;
+    }
+
+    .moto-card .card-img-top {
+        height: 230px;
+    }
+
+    .form-card {
+        padding: 22px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 575.98px) {
+
+    .hero-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section .btn {
+        width: 100%;
+
+        margin-bottom: 10px;
+    }
+
+    .carousel-img {
+        height: 260px;
+    }
+
+    .moto-card .card-img-top {
+        height: 210px;
+    }
+
+    .info-box {
+        padding: 1rem;
+    }
+
+    .back-to-top {
+        width: 45px;
+
+        height: 45px;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+}
+
+
+/* =====================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =====================================================
+   PANTALLAS MUY PEQUEÑAS
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+
+    .hero-stats strong {
+        font-size: 1.2rem;
+    }
+
+
+    .hero-stats span {
+        font-size: 0.48rem;
+    }
+
+
+    .section-heading h2,
+    .featured-section h2 {
+        font-size: 2rem;
+    }
+
+
+    .moto-image {
+        height: 220px;
+    }
+
+
+    .featured-bike-image img {
+        height: 250px;
+    }
+
+}
+
+
+/* =====================================================
+   ORIENTACIÓN HORIZONTAL EN CELULAR
+===================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero-section {
+        min-height: auto;
+
+        padding-top: 100px;
+
+        padding-bottom: 50px;
+    }
+
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+
+    .hero-bike img {
+        height: 300px;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESIBILIDAD
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
